@@ -1,0 +1,17 @@
+!!! 5
+%html
+  %head
+    %title FinTech PMS
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    = render "shared/navbar"
+
+    .container
+      - if flash[:success].present?
+        %p.alert.alert-success.fade.show.auto-dismiss= flash[:success]
+      = yield

@@ -1,0 +1,34 @@
+- @contacts.each do |contact|
+  .card.mb-4.shadow-sm
+    .card-header.bg-primary.text-white
+      %h5.mb-0= "#{contact.name} (#{contact.email})"
+
+    .card-body
+      %h6.text-muted.mb-3
+        = "Organization: #{contact.organization&.name || 'N/A'}"
+
+      %ul.list-group.list-group-flush.mb-3
+        - contact.portfolios.each do |portfolio|
+          %li.list-group-item.d-flex.justify-content-between.align-items-center
+            %span= portfolio.name
+            %span
+              = "Balance: #{number_to_currency(portfolio.balance)}, Perf: #{portfolio.performance}%"
+
+      %div.mb-3
+        - best_perf = contact.best_portfolio&.performance
+        - worst_perf = contact.worst_portfolio&.performance
+        %span.badge.bg-success.me-2
+          = "Best: #{best_perf.present? ? "#{best_perf}%" : "N/A"}"
+        %span.badge.bg-danger
+          = "Worst: #{worst_perf.present? ? "#{worst_perf}%" : "N/A"}"
+          
+      .card-footer.d-flex.flex-column.flex-md-row.g-3
+        / Preview Form
+        = form_with url: preview_email_contact_path(contact), method: :get, local: true, class: "d-flex preview-send-form align-items-center" do |f|
+          = select_tag :template_id, options_from_collection_for_select(@email_templates, :id, :subject), prompt: "Select Template", class: "form-select form-select-sm ", required: true
+          = f.submit "Preview", class: "btn btn-outline-primary", data: { disable_with: false }
+
+        / Send Form
+        = form_with url: send_email_contact_path(contact), method: :post, local: true, class: "d-flex preview-send-form align-items-center" do |f|
+          = select_tag :template_id, options_from_collection_for_select(@email_templates, :id, :subject), prompt: "Select Template", class: "form-select form-select-sm", required: true
+          = f.submit "Send", class: "btn btn-outline-success", data: { disable_with: false }

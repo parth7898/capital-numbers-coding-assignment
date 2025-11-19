@@ -1,0 +1,10 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  %a.navbar-brand{href: root_path} FinTech Portfolio
+  %button.navbar-toggler{"data-toggle" => "collapse", "data-target" => "#navbarNav", "aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto
+      %li.nav-item
+        = link_to "Contacts Dashboard", contacts_path, class: "nav-link"
+      %li.nav-item
+        = link_to "Email Templates", email_templates_path, class: "nav-link "
