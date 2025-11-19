@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'contacts#index'
+
+  resources :contacts, only: [:index] do
+    member do
+      get  'preview_email'
+      post 'send_email'
+    end
+  end
+
+  resources :email_templates do
+    member do
+      get 'preview' 
+    end
+  end
 end
