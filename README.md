@@ -1,4 +1,5 @@
-# My Rails Application
+# Capital Numbers Coding Assignment
+
 
 This README provides all the steps required to set up, run, and test the application locally.
 
