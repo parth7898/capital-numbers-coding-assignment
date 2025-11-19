@@ -12,4 +12,44 @@
  *
  *= require_tree .
  *= require_self
+
  */
+ @import "bootstrap";
+
+ /* Dropdown and button spacing */
+.preview-send-form {
+  display: flex;
+  align-items: center;
+}
+
+.preview-send-form .form-select {
+  flex: 1;   
+  margin-right: 15px;
+}
+
+.preview-send-form .btn {
+  flex: 0 0 auto;     
+}
+/* Add space after Preview button */
+.card-footer .preview-send-form:first-child .btn {
+  margin-right: 15px; 
+}
+
+
+
+.email-buttons .btn {
+  margin-right: 15px;
+}
+
+.email-buttons .btn:last-child {
+  margin-right: 0; 
+}
+
+.alert.hide {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+
+
+
