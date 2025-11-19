@@ -83,6 +83,8 @@ GEM
     digest (3.2.1)
     erubi (1.13.1)
     execjs (2.10.0)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.9.25)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -265,6 +267,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  faker
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
