@@ -35,15 +35,6 @@ class EmailTemplatesController < ApplicationController
   end
 
   def show
-    # In the show action, we do not have a specific contact associated with the email template.
-    # The purpose of this page is only to preview how the template looks when rendered.
-    # Since preview requires a contact object for placeholder replacement,
-    # we use `Contact.first` as a dummy/default contact.
-    # This is NOT used for actual sending — only for static preview display.
-    # In real usage (Send Email), the selected contact is passed dynamically.
-    
-    @contact  = Contact.first  
-    render_template_preview
   end
 
   def destroy

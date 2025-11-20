@@ -1,4 +1,3 @@
-# spec/requests/contacts_spec.rb
 require 'rails_helper'
 
 RSpec.describe "ContactsController", type: :request do

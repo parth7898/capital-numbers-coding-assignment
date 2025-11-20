@@ -1,0 +1,14 @@
+.card.shadow-sm.p-4.mt-4.email-preview
+  %h3.mb-3.text-primary Email Template
+
+  %div.mb-3
+    %strong.text-dark Subject:
+    %div.mt-1.p-2.bg-light.border.rounded= @template.subject
+
+  %div.mb-3
+    %strong.text-dark Body:
+    %pre.p-3.bg-light.border.rounded.body-text= @template.body
+
+  .mt-4
+    = link_to "Edit", edit_email_template_path(@template), class: "btn btn-primary me-2"
+    = link_to "Back", email_templates_path, class: "btn btn-secondary"

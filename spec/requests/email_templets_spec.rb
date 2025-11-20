@@ -1,4 +1,3 @@
-# spec/requests/email_templates_spec.rb
 require 'rails_helper'
 
 RSpec.describe "EmailTemplatesController", type: :request do
@@ -92,12 +91,13 @@ RSpec.describe "EmailTemplatesController", type: :request do
   end
 
   describe "GET /email_templates/:id (show)" do
-    it "renders template preview using dummy contact" do
+    it "shows raw shortcode template, not rendered content" do
       get email_template_path(template)
       expect(response).to have_http_status(:ok)
-      # Should include contact name and best portfolio performance
-      expect(response.body).to include(contact.name)
-      expect(response.body).to include(contact.best_portfolio.performance.to_s)
+      expect(response.body).to include("{Contact.name}")
+      expect(response.body).to include("{Portfolio.best_performance}")
+      expect(response.body).not_to include(contact.name)
+      expect(response.body).not_to include(contact.best_portfolio.performance.to_s)
     end
   end
 end
