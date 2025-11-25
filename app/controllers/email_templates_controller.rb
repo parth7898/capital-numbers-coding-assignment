@@ -53,7 +53,7 @@ class EmailTemplatesController < ApplicationController
   end
 
   def set_contact
-    @contact = Contact.find(params[:id])
+    @contact = Contact.find(params[:contact_id])
   end
 
   def template_params
